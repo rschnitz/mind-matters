@@ -1,0 +1,39 @@
+baseURL: https://www.mind-matters.info/
+languageCode: en-us
+title: MindMatters
+theme: mindmatters
+
+params:
+  description: Making cognitive science and psychology accessible
+  author: Ben Sachs
+  primaryColor: "#FF6B35"
+  secondaryColor: "#2EC4B6"
+
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Podcast
+      url: /podcast/
+      weight: 2
+    - name: Blog
+      url: /blog/
+      weight: 3
+    - name: About
+      url: /about/
+      weight: 4
+    - name: Contact
+      url: /contact/
+      weight: 5
+    - name: PiedmontPeers.org
+      url: https://www.piedmontpeers.org/
+      weight: 6
+
+outputs:
+  home:
+    - HTML
+  section:
+    - HTML
+  page:
+    - HTML

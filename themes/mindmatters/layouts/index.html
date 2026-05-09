@@ -1,0 +1,51 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <h1>Making cognitive science and psychology <em>accessible</em></h1>
+    <p class="hero-sub">Explore articles and podcast episodes on mental health, relationships, behavior, and the science of the mind.</p>
+    <div class="hero-actions">
+      <a href="/blog/" class="btn btn-primary">Read Articles</a>
+      <a href="/podcast/" class="btn btn-secondary">Listen to Podcast</a>
+    </div>
+  </div>
+</section>
+
+<section class="topics">
+  <div class="container">
+    <h2>Topics We Cover</h2>
+    <div class="topics-grid">
+      <div class="topic-card"><span class="topic-icon">&#129504;</span><h3>Learning</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#10084;</span><h3>Emotions</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#129300;</span><h3>Behavior</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#129309;</span><h3>Relationships</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#127774;</span><h3>Mental Health</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#128100;</span><h3>Development</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#128172;</span><h3>Therapy</h3></div>
+      <div class="topic-card"><span class="topic-icon">&#127775;</span><h3>Teen Support</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <div class="container">
+    <h2>Recent Articles</h2>
+    <div class="card-grid">
+      {{ range first 4 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+      <article class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <div class="card-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            {{ if .Params.audio }}<span class="has-audio">&#127911; Podcast</span>{{ end }}
+          </div>
+          {{ with .Summary }}<p class="card-excerpt">{{ . }}</p>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    <div class="section-link">
+      <a href="/blog/" class="btn btn-outline">All Articles &rarr;</a>
+    </div>
+  </div>
+</section>
+{{ end }}
