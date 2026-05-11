@@ -3,3 +3,9 @@ resources/_gen/
 .hugo_build.lock
 node_modules/
 .DS_Store
+.gstack/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
