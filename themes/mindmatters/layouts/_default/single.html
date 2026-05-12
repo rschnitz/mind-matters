@@ -1,18 +1,19 @@
 {{ define "main" }}
 <article class="article-single">
+  {{ with .Params.image }}
+  <img class="article-hero-image" src="{{ . }}" alt="{{ $.Title }}">
+  {{ end }}
   <div class="container">
-    <header class="article-header">
-      <div class="article-meta">
-        {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2, 2006" }}</time>{{ end }}
-        {{ with .ReadingTime }}<span class="reading-time">{{ . }} min read</span>{{ end }}
-      </div>
-      <h1>{{ .Title }}</h1>
-      {{ with .Params.description }}<p class="article-description">{{ . }}</p>{{ end }}
-    </header>
+    <div class="article-meta">
+      <span>Leo Sachs</span>
+      {{ with .Date }}<time datetime="{{ .Format "2025-10-02" }}">{{ .Format "October 2, 2025" }}</time>{{ end }}
+      {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
+    </div>
+    <h1>{{ .Title }}</h1>
 
     {{ with .Params.audio }}
     <div class="audio-player">
-      <h3>Listen to this episode</h3>
+      <p>Listen to this episode</p>
       <audio controls preload="metadata">
         <source src="{{ . }}" type="audio/mpeg">
       </audio>

@@ -5,7 +5,7 @@ theme: mindmatters
 
 params:
   description: Making cognitive science and psychology accessible
-  author: Ben Sachs
+  author: Leo Sachs
   primaryColor: "#FF6B35"
   secondaryColor: "#2EC4B6"
 

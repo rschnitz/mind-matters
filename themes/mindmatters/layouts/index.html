@@ -1,51 +1,100 @@
 {{ define "main" }}
+
+<!-- Hero -->
 <section class="hero">
-  <div class="container">
-    <h1>Making cognitive science and psychology <em>accessible</em></h1>
-    <p class="hero-sub">Explore articles and podcast episodes on mental health, relationships, behavior, and the science of the mind.</p>
-    <div class="hero-actions">
-      <a href="/blog/" class="btn btn-primary">Read Articles</a>
-      <a href="/podcast/" class="btn btn-secondary">Listen to Podcast</a>
-    </div>
+  <div class="hero-text">
+    <h1>Making cognitive science and psychology accessible</h1>
+    <p>From how our brains process the world and the science of emotions, to the ways family relationships shape us and influence our closest bonds, to the mental health effects of growing up online and the unique challenges of the teenage brain. Explore the science of happiness and positive psychology, and learn how therapy can help.</p>
+  </div>
+  <div class="hero-image">
+    <img src="/images/hero.png" alt="Students together">
   </div>
 </section>
 
-<section class="topics">
+<!-- What you'll find -->
+<section class="features-section">
   <div class="container">
-    <h2>Topics We Cover</h2>
-    <div class="topics-grid">
-      <div class="topic-card"><span class="topic-icon">&#129504;</span><h3>Learning</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#10084;</span><h3>Emotions</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#129300;</span><h3>Behavior</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#129309;</span><h3>Relationships</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#127774;</span><h3>Mental Health</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#128100;</span><h3>Development</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#128172;</span><h3>Therapy</h3></div>
-      <div class="topic-card"><span class="topic-icon">&#127775;</span><h3>Teen Support</h3></div>
-    </div>
-  </div>
-</section>
-
-<section class="recent-posts">
-  <div class="container">
-    <h2>Recent Articles</h2>
-    <div class="card-grid">
-      {{ range first 4 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <div class="card-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-            {{ if .Params.audio }}<span class="has-audio">&#127911; Podcast</span>{{ end }}
-          </div>
-          {{ with .Summary }}<p class="card-excerpt">{{ . }}</p>{{ end }}
+    <h2 class="features-heading">What you'll find on MindMatters:</h2>
+    <div class="features-list">
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/building-blocks.png" alt=""></div>
+        <div class="feature-text">
+          <h3>The building blocks of how you think</h3>
+          <p>We'll dive into how your brain processes the world – how you learn, remember, and solve problems.</p>
         </div>
-      </article>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/emotions.png" alt=""></div>
+        <div class="feature-text">
+          <h3>The power of your emotions</h3>
+          <p>Learn why your feelings matter and how to manage them for better personal and professional success.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/logo-brain.png" alt=""></div>
+        <div class="feature-text">
+          <h3>How your brain shapes your behavior</h3>
+          <p>Get a peek under the hood to see how your mind influences your actions.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/relationships.png" alt=""></div>
+        <div class="feature-text">
+          <h3>Stronger relationships, starting with you</h3>
+          <p>We'll look at how you connect with family, friends, or partners.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/mental-health.png" alt=""></div>
+        <div class="feature-text">
+          <h3>Strategies for better mental health</h3>
+          <p>Explore ways to manage stress, anxiety, and those moments when you feel down.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/childhood.png" alt=""></div>
+        <div class="feature-text">
+          <h3>How childhood shapes us</h3>
+          <p>Understand how your earliest experiences can affect you today.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/solve.png" alt=""></div>
+        <div class="feature-text">
+          <h3>Making therapy understandable</h3>
+          <p>We'll break down how therapy works so it feels less mysterious.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><img src="/images/icons/teen-support.png" alt=""></div>
+        <div class="feature-text">
+          <h3>Supporting teens' mental health</h3>
+          <p>A special focus on the challenges young people face, especially now, and the best ways to help.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Posts -->
+<section class="featured-section">
+  <div class="container">
+    <h2>Featured Posts</h2>
+    <div class="featured-list">
+      {{ range first 3 (where (where .Site.RegularPages "Section" "blog") "Params.podcast_only" "!=" true).ByDate.Reverse }}
+      <div class="featured-item">
+        <div class="featured-image">
+          {{ with .Params.image }}<img src="{{ . }}" alt="{{ $.Title }}">{{ end }}
+        </div>
+        <div class="featured-content">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Summary | truncate 160 }}</p>
+          <a href="{{ .RelPermalink }}" class="btn-read">Read</a>
+        </div>
+      </div>
       {{ end }}
     </div>
-    <div class="section-link">
-      <a href="/blog/" class="btn btn-outline">All Articles &rarr;</a>
-    </div>
   </div>
 </section>
+
 {{ end }}

@@ -1,29 +1,26 @@
 {{ define "main" }}
 <section class="list-page">
   <div class="container">
-    <header class="list-header">
-      <h1>{{ .Title }}</h1>
-      {{ with .Content }}<div class="list-description">{{ . }}</div>{{ end }}
-    </header>
-    <div class="card-grid">
-      {{ range .Pages.ByDate.Reverse }}
-      <article class="card">
+    <h1 class="list-page-heading">All Posts</h1>
+    <div class="featured-list">
+      {{ range (where .Pages "Params.podcast_only" "!=" true).ByDate.Reverse }}
+      <div class="featured-item">
         {{ with .Params.image }}
-        <a href="{{ $.RelPermalink }}" class="card-image-link">
-          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
-        </a>
-        {{ end }}
-        <div class="card-body">
-          <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <div class="card-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-            {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
-            {{ if .Params.audio }}<span class="has-audio">&#127911; Podcast</span>{{ end }}
-          </div>
-          {{ with .Summary }}<p class="card-excerpt">{{ . }}</p>{{ end }}
-          <a href="{{ .RelPermalink }}" class="card-link">Read more &rarr;</a>
+        <div class="featured-image">
+          <a href="{{ $.RelPermalink }}"><img src="{{ . }}" alt="{{ $.Title }}" loading="lazy"></a>
         </div>
-      </article>
+        {{ end }}
+        <div class="featured-content">
+          <div class="list-item-meta">
+            <span class="author-avatar">LS</span>
+            <span>Leo Sachs</span>
+            <span class="list-item-date">{{ .Date.Format "Oct 2, 2025" }}</span>∫
+          </div>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Summary | truncate 180 }}</p>
+          <a href="{{ .RelPermalink }}" class="btn-read">Read</a>
+        </div>
+      </div>
       {{ end }}
     </div>
   </div>

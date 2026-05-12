@@ -3,7 +3,9 @@ title: "Cannabis on the Mind"
 date: 2024-11-24
 description: "As cannabis use grows, it's important to understand what this plant does to your mind and body — especially for developing brains."
 audio: "/audio/Cannabis_on_the_Mind.mp3"
-author: Ben Sachs
+image: "/images/blog/unlock-calm.webp"
+author: Leo Sachs
+podcast_only: true
 ---
 
 Hello and welcome back to Mind Matters. Today we're going to be talking about cannabis and why you might want to think twice before using it. Cannabis has become a popular substance in today's society, used by people of all ages for various reasons.

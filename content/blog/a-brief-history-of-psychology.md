@@ -3,7 +3,9 @@ title: "A Brief History of Psychology"
 date: 2024-04-01
 description: "How does the human mind work? Explore the journey of discovery, debate, and innovation that shaped modern psychology."
 audio: "/audio/A_Brief_History_of_Psychology.mp3"
-author: Ben Sachs
+image: "/images/blog/mental-health-online.webp"
+author: Leo Sachs
+podcast_only: true
 ---
 
 Hello and welcome to the Mind Matters podcast. Today we're going to be covering and discussing a brief history of psychology. How does the human mind work?

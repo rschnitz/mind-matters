@@ -1,13 +1,13 @@
 <header class="site-header">
   <div class="container">
     <a href="/" class="logo">
-      <span class="logo-mind">Mind</span><span class="logo-matters">Matters</span>
+      <img src="/images/logo-header.png" alt="MindMatters" class="logo-img">
     </a>
     <nav class="main-nav">
       <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
-      <ul class="nav-list">
+      <ul>
         {{ range .Site.Menus.main }}
-        <li><a href="{{ .URL }}" {{ if $.IsHome }}{{ if eq .Name "Home" }}class="active"{{ end }}{{ else }}{{ if $.Page.IsDescendant ($.Site.GetPage .URL) }}class="active"{{ end }}{{ end }}{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
+        <li><a href="{{ .URL }}"{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
         {{ end }}
       </ul>
     </nav>

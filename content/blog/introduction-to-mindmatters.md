@@ -3,10 +3,12 @@ title: "Introduction to MindMatters"
 date: 2024-01-01
 description: "Welcome to MindMatters — a podcast exploring the depths of the human mind and the mysteries of behavior."
 audio: "/audio/Introduction_To_Mindmatters.mp3"
-author: Ben Sachs
+image: "/images/blog/science-of-feelings.webp"
+author: Leo Sachs
+podcast_only: true
 ---
 
-Hello and welcome to Mind Matters, the podcast where we dive into the depths of the human mind and uncover the mysteries of our behavior. I'm your host, Ben Sachs, a rising senior from Piedmont, California. Psychology has always been a passion of mine, and I'm excited to share this journey with you.
+Hello and welcome to Mind Matters, the podcast where we dive into the depths of the human mind and uncover the mysteries of our behavior. I'm your host, Ben Leo Sachs, a junior from Piedmont, California. Psychology has always been a passion of mine, and I'm excited to share this journey with you.
 
 Why psychology, you may ask? Understanding how we think, feel, and act has always fascinated me. From the earliest philosophical musings to the latest scientific discoveries, psychology offers endless insights into what makes us who we are.
 
